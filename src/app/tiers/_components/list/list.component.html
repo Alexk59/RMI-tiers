@@ -8,29 +8,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngFor="let tier of tiers; index as index">
       <td>
-        <a [routerLink]="'/form/1'">Edit</a>
+        <a [routerLink]="'/form/' + tier.id">Edit</a>&nbsp;
+        <a href="javascript:void(0)" (click)="delete(index)">Delete</a>
       </td>
-      <th scope="row">1</th>
-      <td>Tier 1</td>
-      <td>$30.00</td>
-    </tr>
-    <tr>
-      <td>
-        <a [routerLink]="'/form/2'">Edit</a>
-      </td>
-      <th scope="row">2</th>
-      <td>Tier 2</td>
-      <td>$50.00</td>
-    </tr>
-    <tr>
-      <td>
-        <a [routerLink]="'/form/3'">Edit</a>
-      </td>
-      <th scope="row">3</th>
-      <td>Tier 3</td>
-      <td>$100.00</td>
+      <th scope="row">{{ tier.id }}</th>
+      <td>{{ tier.name }}</td>
+      <td>{{ tier.amount | currency }}</td>
     </tr>
   </tbody>
 </table>
