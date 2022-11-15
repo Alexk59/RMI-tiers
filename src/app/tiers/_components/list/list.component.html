@@ -1,10 +1,20 @@
+<select
+  placeholder="- Filter Month -"
+  [(ngModel)]="filterMonth"
+  (change)="filterData()"
+>
+  <option *ngFor="let month of months | keyvalue" value="{{ month.key }}">
+    {{ month.value }}
+  </option>
+</select>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Actions</th>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
-      <th scope="col">Amount</th>
+      <th scope="col">Year</th>
+      <th scope="col">Month</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +25,8 @@
       </td>
       <th scope="row">{{ tier.id }}</th>
       <td>{{ tier.name }}</td>
-      <td>{{ tier.amount | currency }}</td>
+      <td>{{ tier.year }}</td>
+      <td>{{ months[tier.month] }}</td>
     </tr>
   </tbody>
 </table>

@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { ListComponent } from "./_components/list/list.component";
 import { FormComponent } from "./_components/form/form.component";
@@ -22,6 +22,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ListComponent, FormComponent, MainComponent],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class TiersModule {}
